@@ -11,18 +11,22 @@ const Pokecard = ({ pokemon }) => {
   return (
     <Link href={`pokemon/${pokemon.name}`} >
       <a>
-        <div className="flex flex-col items-center justify-center p-4 rounded-md bg-slate-100">
-          <Image
-            alt={pokemon.name}
-            src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokeIndex}.png`}
-            placeholder='blur'
-            blurDataURL={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokeIndex}.png`}
-            width={150}
-            height={150}
-          //onLoadingComplete={() => setLoading(false)}
-          //className={`duration-300 ${loading ? 'scale-110' : 'scale-100'}`}
-          />
-          <h1 className='capitalize'>{pokemon.name} #{pokeIndex}</h1>
+        <div className="flex flex-col items-center h-full min-h-[150px] p-4 rounded-md bg-slate-100">
+
+          <h1 className='capitalize flex items-center h-[20%]'>{pokemon.name} #{pokeIndex}</h1>
+
+          <div className="h-[80%] w-full relative">
+            <Image
+              alt={pokemon.name}
+              src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokeIndex}.png`}
+              placeholder='blur'
+              blurDataURL={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokeIndex}.png`}
+              layout='fill'
+              objectFit='contain'
+            //onLoadingComplete={() => setLoading(false)}
+            //className={`duration-300 ${loading ? 'scale-110' : 'scale-100'}`}
+            />
+          </div>
         </div>
       </a>
     </Link >
