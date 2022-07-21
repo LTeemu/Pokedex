@@ -1,11 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-//import { useState } from "react";
 
 const Pokemon = ({ pokemon }) => {
   const pokeIndex = '000'.slice(0, -pokemon.id.toString().length) + pokemon.id
-
-  //const [loading, setLoading] = useState(true)
 
   return (
     <div className="min-h-screen bg-slate-100">
@@ -17,8 +14,8 @@ const Pokemon = ({ pokemon }) => {
           blurDataURL={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokeIndex}.png`}
           width={400}
           height={400}
-        //onLoadingComplete={() => setLoading(false)}
-        //className={`duration-300 ${loading ? 'scale-110' : 'scale-100'}`}
+          objectPosition='center'
+          className='bg-no-repeat'
         />
         <h1 className='capitalize'>{pokemon.name} #{pokeIndex}</h1>
 
@@ -54,7 +51,6 @@ const Pokemon = ({ pokemon }) => {
 export default Pokemon;
 
 export async function getServerSideProps(context) {
-  console.log('Pokemon fetch triggered on single page')
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${context.query.name}`)
   const pokemon = await res.json()
   return {
