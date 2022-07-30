@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Pokemon = ({ pokemon }) => {
+export default function Pokemon({ pokemon }) {
   const pokeIndex = '000'.slice(0, -pokemon.id.toString().length) + pokemon.id
 
   return (
@@ -40,22 +40,16 @@ const Pokemon = ({ pokemon }) => {
       </div>
 
       <Link href='/'>
-        <a className="absolute top-0 left-0 py-1 pl-2 pr-4 font-bold tracking-widest text-gray-600 bg-slate-300 border-2 border-slate-400 rounded-br-[30px]">
-          Back
-        </a>
+        <a className="absolute top-0 left-0 py-1 pl-2 pr-4 font-bold tracking-widest text-gray-600 bg-slate-300 border-2 border-slate-400 rounded-br-[30px]">Back</a>
       </Link>
     </div>
   );
 }
 
-export default Pokemon;
-
 export async function getServerSideProps(context) {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${context.query.name}`)
   const pokemon = await res.json()
   return {
-    props: {
-      pokemon
-    }
+    props: { pokemon }
   }
 }
