@@ -1,5 +1,5 @@
-Made quickly to practice APIs and dynamic pages<br>
-Vercel URL: https://pokedex-teemul.vercel.app/
+Made to practice APIs and dynamic pages<br>
+https://pokedex-teemul.vercel.app/
 <br/><br/>
 
 ---
